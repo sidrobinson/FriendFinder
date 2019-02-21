@@ -2,6 +2,7 @@ let http = require("http");
 let fs = require("fs");
 
 // Server
+const app = express();
 let PORT = 9000;
 const server = http.createServer(routes);
 
@@ -12,11 +13,20 @@ function handleRequest(request, response) {
   response.end(" " + request.url);
 }
 
+// when button at end of survey is clicked, take page to /apiFriendList.html
+document.getElementById("#buttonID").onclick = function () {
+  location.href = "/apiFriendList.html";
+};
+
+// let button = document.getElementById("#buttonID");
+// button.onclick = function() {
+//   if (button === "clicked")
+// }
+
 // function for requests and responses 
 function routes(req, res) {
   const path = req.url;
-  console.log("hello");
-  console.log(path);
+  let path = require('path');
 
   switch (path) {
     case "/":
