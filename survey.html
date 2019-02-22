@@ -1,23 +1,25 @@
 <!DOCTYPE html>
 <html lang="en-us">
+
 <head>
     <link rel="stylesheet" href="survey.css">
     <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"> -->
     <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"> -->
 </head>
+
 <body>
     <div>
         <h4>Survey Questionaire</h4>
         <!-- <h1>About You</h1> -->
         <div class="nameProfile">
-                        <div class="topLeft">
-                          <label for="name">Name</label>
-                        <input type="text" placeholder="Name(Required)" name="name">
-                      </div>
-                        <div class="topRight">
-                          <label for="profile">Profile Picture</label>
-                            <input type="text" placeholder="Profile Picture" name="profile">
-                        </div>
+            <div class="topLeft">
+                <label for="name">Name</label>
+                <input type="text" placeholder="Name(Required)" name="name">
+            </div>
+            <div class="topRight">
+                <label for="profile">Profile Picture</label>
+                <input type="text" placeholder="Profile Picture" name="profile">
+            </div>
         </div>
         <!-- <h3>Profile Picture
             <div class="topnav">
@@ -29,6 +31,7 @@
     <div class="form-group">
         <label for="questionaire">Your mind is always buzzing with unexplored ideas and plans.</label>
         <select class="form-control" id="numRecordsSelect">
+            <option value=0></option>
             <option value=1>1 (Strongly Agree)</option>
             <option value=selected>2</option>
             <option value=10>3</option>
@@ -40,6 +43,7 @@
     <div class="form-group">
         <label for="questionaire">Generally speaking, you rely more on your experience than your imagination.</label>
         <select class="form-control" id="numRecordsSelect">
+            <option value=0></option>
             <option value=1>1 (Strongly Agree)</option>
             <option value=selected>2</option>
             <option value=10>3</option>
@@ -51,6 +55,7 @@
     <div class="form-group">
         <label for="questionaire">You find it easy to stay relaxed and focused even when there is some pressure.</label>
         <select class="form-control" id="numRecordsSelect">
+            <option value=0></option>
             <option value=1>1 (Strongly Agree)</option>
             <option value=selected>2</option>
             <option value=10>3</option>
@@ -62,6 +67,7 @@
     <div class="form-group">
         <label for="questionaire">You rarely do something just out of sheer curiosity.</label>
         <select class="form-control" id="numRecordsSelect">
+            <option value=0></option>
             <option value=1>1 (Strongly Agree)</option>
             <option value=selected>2</option>
             <option value=10>3</option>
@@ -73,6 +79,7 @@
     <div class="form-group">
         <label for="questionaire">People can rarely upset you.</label>
         <select class="form-control" id="numRecordsSelect">
+            <option value=0></option>
             <option value=1>1 (Strongly Agree)</option>
             <option value=selected>2</option>
             <option value=10>3</option>
@@ -84,6 +91,7 @@
     <div class="form-group">
         <label for="questionaire">It is often difficult for you to relate to other people’s feelings.</label>
         <select class="form-control" id="numRecordsSelect">
+            <option value=0></option>
             <option value=1>1 (Strongly Agree)</option>
             <option value=selected>2</option>
             <option value=10>3</option>
@@ -95,6 +103,7 @@
     <div class="form-group">
         <label for="questionaire">In a discussion, truth should be more important than people’s sensitivities.</label>
         <select class="form-control" id="numRecordsSelect">
+            <option value=0></option>
             <option value=1>1 (Strongly Agree)</option>
             <option value=selected>2</option>
             <option value=10>3</option>
@@ -106,6 +115,7 @@
     <div class="form-group">
         <label for="questionaire">You rarely get carried away by fantasies and ideas.</label>
         <select class="form-control" id="numRecordsSelect">
+            <option value=0></option>
             <option value=1>1 (Strongly Agree)</option>
             <option value=selected>2</option>
             <option value=10>3</option>
@@ -118,6 +128,7 @@
         <label for="questionaire">You think that everyone’s views should be respected regardless of whether they are
             supported by facts or not.</label>
         <select class="form-control" id="numRecordsSelect">
+            <option value=0></option>
             <option value=1>1 (Strongly Agree)</option>
             <option value=selected>2</option>
             <option value=10>3</option>
@@ -129,6 +140,7 @@
     <div class="form-group">
         <label for="questionaire">You feel more energetic after spending time with a group of people.</label>
         <select class="form-control" id="numRecordsSelect">
+            <option value=0></option>
             <option value=1>1 (Strongly Agree)</option>
             <option value=selected>2</option>
             <option value=10>3</option>
@@ -138,5 +150,42 @@
         <p></p>
     </div>
     <button id="buttonID">SUBMIT</button>
+    <div>
+        <ul>
+            <a href="/apiFriendList">API Friends List</a>
+            <a>|</a>
+            <a href="/gitHubRepo">GitHub Repo</a>
+            <a>|</a>
+            <a href="http://localhost:1738/">Home</a>
+        </ul>
+
+    </div>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+        crossorigin="anonymous"></script>
+    <script type="text/javascript">
+        console.log('hello from survey.js')
+        $("#buttonID").click(function () {
+            //use jquery and a for loop to loop through all of the select inputs to figure out if the survey has been filled out
+            var arrayOfSelectInputs = $(".form-control");
+            var formFinshed = true;
+
+            for (var i = 0; i < arrayOfSelectInputs.length; i++) {
+                if (arrayOfSelectInputs[i].value == 0) {
+                    formFinshed = false;
+                }
+            }
+            console.log(arrayOfSelectInputs[0].value);
+
+            //if any of their values are currently set to our "default" value, we know the form isn't finshed
+            if (formFinshed) {
+                //show them who they matched with
+                alert("Best match is Lauren!")
+            } else {
+                alert("Please finish questions before submitting!")
+            }
+        })
+
+    </script>
 </body>
+
 </html>
